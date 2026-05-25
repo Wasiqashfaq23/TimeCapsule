@@ -1,15 +1,22 @@
 import fetchBooksByYear from "../api/Books";
 import { useState } from "react";
+import type {BookVolume} from "../Types";
+import BookCard from "./Bookcard";
 
 function Inputform() {
   const [Day, setDay] = useState<number | undefined>();
   const [Month, setMonth] = useState<number | undefined>();
   const [Year, setYear] = useState<number | undefined>();
+  const [books, setBooks] = useState<BookVolume[]>([]);
+
   const handleclick = async () => {
     if (Day && Month && Year) {
-      const bookstring = await fetchBooksByYear(Year).then((data: JsonWebKey) => {
-        console.log(data);
-      });
+      const data = await fetchBooksByYear(Year);
+      if (data && data.items) {
+        setBooks(data.items);
+      } else {
+        setBooks([]); 
+      }
     }
   };
 
@@ -25,6 +32,7 @@ function Inputform() {
     Year >= 1900 && Year <= 2025;
 
   return (
+    <>
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="bg-white rounded-2xl border border-gray-200 p-8 w-full max-w-md shadow-sm">
 
@@ -94,6 +102,16 @@ function Inputform() {
         </div>
       </div>
     </div>
+      {books.length > 0 && (
+        <div className="w-full max-w-2xl flex flex-col  gap-6">
+          <h2 className="text-xl font-semibold text-gray-800 border-b pb-2">Books from {Year}</h2>
+          
+          {books.map((book) => (
+            <BookCard key={book.id} book={book} />
+          ))}
+          
+        </div>)}
+        </>
   );
 }
 
