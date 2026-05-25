@@ -1,9 +1,18 @@
+import fetchBooksByYear from "../api/Books";
 import { useState } from "react";
 
 function Inputform() {
   const [Day, setDay] = useState<number | undefined>();
   const [Month, setMonth] = useState<number | undefined>();
   const [Year, setYear] = useState<number | undefined>();
+  const handleclick = async () => {
+    if (Day && Month && Year) {
+      const bookstring = await fetchBooksByYear(Year).then((data: JsonWebKey) => {
+        console.log(data);
+      });
+    }
+  };
+
 
   const months = [
     "January", "February", "March", "April", "May", "June",
@@ -73,7 +82,7 @@ function Inputform() {
           )}
 
           <button
-            disabled={!isValid}
+            onClick={handleclick}
             className={`w-full py-3 rounded-xl text-sm font-medium transition
               ${isValid
                 ? "bg-gray-900 text-white hover:bg-gray-800 cursor-pointer"
