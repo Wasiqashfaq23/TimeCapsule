@@ -1,15 +1,11 @@
 import type {BookVolume} from "../Types";
-
 interface BookCardProps {
   book: BookVolume;
 }
-
 const BookCard = ({ book }: BookCardProps) => {
   const { title, authors, categories, imageLinks, pageCount } = book.volumeInfo;
-
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-5 flex gap-6 shadow-sm hover:shadow-md transition">
-      
       <div className="shrink-0">
         {imageLinks?.thumbnail ? (
           <img 
@@ -23,10 +19,8 @@ const BookCard = ({ book }: BookCardProps) => {
           </div>
         )}
       </div>
-
       <div className="flex flex-col justify-center">
         <h3 className="text-lg font-bold text-gray-900 leading-tight mb-2">{title}</h3>
-        
         <div className="text-sm text-gray-600 space-y-1">
           <p>
             <span className="font-semibold text-gray-700">Author(s):</span> {authors ? authors.join(', ') : 'Unknown'}
@@ -39,9 +33,7 @@ const BookCard = ({ book }: BookCardProps) => {
           </p>
         </div>
       </div>
-
     </div>
   );
 };
-
 export default BookCard;

@@ -1,5 +1,4 @@
 import { FaClockRotateLeft } from "react-icons/fa6";
-
 function Navbar() {
   return (
     <nav className="w-full bg-white border-b border-gray-200 px-8 h-15 flex items-center">
@@ -12,5 +11,4 @@ function Navbar() {
     </nav>
   );
 }
-
 export default Navbar
