@@ -4,8 +4,8 @@
 
 1. Clone the repo:
    ```sh
-   git clone <your-repo-url>
-   cd BFacts
+   git clone https://github.com/Wasiqashfaq23/TimeCapsule.git
+   cd TimeCapsule
    ```
 2. Install dependencies:
    ```sh
