@@ -6,7 +6,7 @@ A web app that lets you explore books and historical events from your birthday, 
 
 1. **Clone the repo:**
    ```sh
-   git clone <your-repo-url>
+   git clone https://github.com/Wasiqashfaq23/TimeCapsule.git
    cd TimeCapsule
    ```
 2. **Install dependencies:**
