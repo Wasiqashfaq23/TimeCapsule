@@ -45,10 +45,10 @@ const Eventcard = ({ date, category = "selected" }: EventcardProps) => {
                 key={i}
                 className="flex flex-col sm:flex-row items-start sm:items-baseline gap-2 sm:gap-3 border-b border-gray-100 pb-2 last:border-b-0 last:pb-0"
               >
-                <span className="font-semibold text-xs bg-gray-100 px-2 py-0.5 rounded text-gray-700 min-w-[2.5rem] text-center mb-1 sm:mb-0">
+                <span className="font-semibold text-xs bg-gray-100 px-2 py-0.5 rounded text-gray-700 min-w-10 text-center mb-1 sm:mb-0">
                   {ev.year}
                 </span>
-                <span className="flex-1 text-sm text-gray-800 leading-relaxed break-words">
+                <span className="flex-1 text-sm text-gray-800 leading-relaxed wrap-break-words">
                   {ev.text}
                 </span>
                 {ev.pages?.[0]?.content_urls?.desktop?.page && (
